@@ -1,12 +1,11 @@
 import pyautogui
-import keyboard
-import mouse
+from pynput import mouse
 import time
 
 if mouse.is_pressed():
     pos1 = pyautogui.position()
     print(pos1)
-    time.sleep(.5)
+    time.sleep(1)
 if mouse.is_pressed():
     pos2 = pyautogui.position()
     print(pos2)
@@ -18,6 +17,6 @@ im = pyautogui.screenshot(region=(pos1[0],pos1[1], width, height))
 
 tablocation = pyautogui.locateOnScreen(im)
 tabx,  taby = tablocation
-tabx + width - 4
-taby + height - 4
+tabx += width - 4
+taby += height - 4
 pyautogui.click(tabx, taby)
